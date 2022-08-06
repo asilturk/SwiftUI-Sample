@@ -73,6 +73,7 @@ struct ContentView: View {
     }
 }
 
+// MARK: - ButtonStyle
 struct GradientBackgroundStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration
@@ -93,6 +94,7 @@ struct GradientBackgroundStyle: ButtonStyle {
     }
 }
 
+// MARK: - ContentView_Previews
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
