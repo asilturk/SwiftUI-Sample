@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var color: Color = .cyan
-
     var body: some View {
         
         VStack {
             /// with HStack
             Button {
-                print("Delete")
+                print("Delete button tapped")
             } label: {
                 HStack(alignment: .center) {
                     Image(systemName: "trash")
@@ -34,7 +32,7 @@ struct ContentView: View {
             
             /// with Label
             Button {
-                print("Delete")
+                print("Like button tapped")
             } label: {
                 Label(title: {
                     Text("Like")
@@ -55,14 +53,45 @@ struct ContentView: View {
                         endPoint: .bottomTrailing)
                 )
                 .clipShape(Capsule())
-                
             }
             
+            /// with style
+            Button {
+                print("Share button tapped")
+            } label: {
+                HStack {
+                    Image(systemName: "square.and.arrow.up")
+                        .font(.title)
+                    
+                    Text("Share")
+                        .fontWeight(.semibold)
+                        .font(.title)
+                }
+            }
+            .buttonStyle(GradientBackgroundStyle())
         }
-        
     }
 }
 
+struct GradientBackgroundStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration
+            .label
+            .frame(width: 150, height: 20, alignment: .center)
+            .padding()
+            .foregroundColor(.white)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [.red, .yellow]),
+                    startPoint: .bottomTrailing,
+                    endPoint: .topLeading
+                )
+            )
+            .cornerRadius(40)
+            .padding(.horizontal, 20)
+            .scaleEffect(configuration.isPressed ? 0.9 : 1)
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
