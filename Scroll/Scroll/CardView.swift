@@ -44,10 +44,10 @@ struct CardView: View {
         }
         .cornerRadius(10)
         .padding([.horizontal])
-        
     }
 }
 
+// MARK: - PreviewProvider
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
         CardView(
